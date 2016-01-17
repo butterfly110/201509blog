@@ -1,5 +1,5 @@
 #安装生成器
-> npm install express -g
+> npm install express-generator -g
 
 #生成项目
 > express -e 201509blog
