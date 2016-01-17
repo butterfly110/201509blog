@@ -23,16 +23,20 @@ app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));//指定日志输出的格式
 app.use(bodyParser.json());//处理JSON 通过 Content-Type来判断是否由自己来处理
 app.use(bodyParser.urlencoded({ extended: false }));//处理form-urlencoded
+//先加载cookie中间件
 app.use(cookieParser());//处理cookie 把请求头中的cookie转成对象，加入一个cookie函数的属性
 var settings = require('./settings');
 var flash = require('connect-flash');
+//再加载会话session中间件,它依赖cookie
 app.use(session({
   secret: 'zfpxblog',
   saveUninitialized:true,
   resave:true,
   store:new MongoStore({url:settings.dbUrl})
 }));
+//再加载flash中间件，它依赖session
 app.use(flash());
+//模板变量处理中间件它依赖flash
 app.use(function(req,res,next){
   res.locals.user =  req.session.user;
   res.locals.success =  req.flash('success').toString();
@@ -41,7 +45,7 @@ app.use(function(req,res,next){
 });
 app.use(express.static(path.join(__dirname, 'public')));//静态文件服务
 
-
+//路由中的模板渲染依赖flash中间件
 app.use('/', routes);
 app.use('/users', users);
 app.use('/articles', articles);
