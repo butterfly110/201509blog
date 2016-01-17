@@ -12,6 +12,7 @@ mongoose.model('Article',new mongoose.Schema({
     title:{type:String,required:true},
     content:{type:String,required:true},
     createAt:{type:Date,default:Date.now},
+    img:{type:String},
     user:{type:ObjectId,ref:'User'}
 }));
 global.Model = function(type){

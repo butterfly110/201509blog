@@ -26,6 +26,7 @@ app.use(bodyParser.urlencoded({ extended: false }));//处理form-urlencoded
 //先加载cookie中间件
 app.use(cookieParser());//处理cookie 把请求头中的cookie转成对象，加入一个cookie函数的属性
 var settings = require('./settings');
+
 var flash = require('connect-flash');
 //再加载会话session中间件,它依赖cookie
 app.use(session({
@@ -39,6 +40,7 @@ app.use(flash());
 //模板变量处理中间件它依赖flash
 app.use(function(req,res,next){
   res.locals.user =  req.session.user;
+  res.locals.keyword =  req.session.keyword;
   res.locals.success =  req.flash('success').toString();
   res.locals.error =  req.flash('error').toString();
   next();

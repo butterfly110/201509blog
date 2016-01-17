@@ -35,4 +35,5 @@
 #显示提示
 >npm install connect-flash --save
 
- 
+#安装markdown
+> npm install markdown -save
