@@ -17,7 +17,7 @@ app.set('view engine', 'html');//设置模板引擎
 app.engine('html',require('ejs').__express);//设置对html文件的渲染方式
 
 // uncomment after placing your favicon in /public
-//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));//指定日志输出的格式
 app.use(bodyParser.json());//处理JSON 通过 Content-Type来判断是否由自己来处理
 app.use(bodyParser.urlencoded({ extended: false }));//处理form-urlencoded

@@ -1,0 +1,24 @@
+{
+  "name": "201509blog",
+  "description": "this is a blog",
+  "main": "",
+  "authors": [
+    "zfpx <zfpx@126.com>"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "blog"
+  ],
+  "homepage": "https://github.com/zhufengnodejs/201509blog",
+  "moduleType": [],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.6"
+  }
+}
