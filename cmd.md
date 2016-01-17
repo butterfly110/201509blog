@@ -25,5 +25,14 @@
 # 安装bootstrap
 > bower install bootstrap --save
 
+#安装数据库
+> npm install mongoose --save
+
+#安装会话中间件
+
+> npm install express-session connect-mongo --save
+
+#显示提示
+>npm install connect-flash --save
 
  
