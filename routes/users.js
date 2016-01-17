@@ -2,17 +2,25 @@ var express = require('express');
 //返回一个路由的实例
 var router = express.Router();
 
-router.use(function(req,res,next){
-  console.log('user use');
-  next();
+//用户注册
+router.get('/reg', function(req, res, next) {
+  res.render('user/reg',{title:'用户注册'});
+});
+router.post('/reg', function(req, res, next) {
+  res.redirect('/');
 });
 
-router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
+//用户登陆
+router.get('/login', function(req, res, next) {
+  res.render('user/login',{title:'用户登录'});
 });
-router.get('/hello', function(req, res, next) {
-  res.setHeader('Content-Length','5');
-  res.send('hello');
+router.post('/login', function(req, res, next) {
+  res.redirect('/');
+});
+
+//用户退出
+router.get('/logout', function(req, res, next) {
+ res.redirect('/');
 });
 
 module.exports = router;
